@@ -1,0 +1,73 @@
+﻿@*Doc says we have to inheredite of TestContext*@
+@inherits TestContext
+@using UCR.ECCI.IS.ExampleProject.Presentation.Blazor.Components
+@using FluentAssertions
+
+@code {
+    [Fact]
+    public void Loading_ShouldRenderSpinner_WhenIsLoadingIsTrue()
+    {
+        // Arrange
+        var cut = Render(@<Loading IsLoading="true" />);
+
+        // Act
+        Action findSpinnerAction = () => cut.Find("#loading-spinner");
+
+        // Assert
+        findSpinnerAction.Should().NotThrow(
+            because: "the spinner should be rendered when IsLoading = true");
+    }
+
+    [Fact]
+    public void Loading_ShouldNotRenderSpinner_WhenIsLoadingIsFalse()
+    {
+        // Arrange
+        var cut = Render(@<Loading IsLoading="false" />);
+
+        // Act
+        Action findSpinnerAction = () => cut.Find("#loading-spinner");
+
+        // Assert
+        // Test with exception
+        findSpinnerAction.Should().ThrowExactly<ElementNotFoundException>(
+            because: "the spinner should not be rendered when IsLoading = false");
+    }
+
+    [Fact]
+    public void Loading_ShouldRenderChildContent_WhenIsLoadingIsFalse()
+    {
+      // Arrange
+      var cut = Render(
+        @<Loading IsLoading="false">                   
+            <p id="child-content">Child Content</p>
+        </Loading>);
+
+      // Act
+      Action findChildContentAction = () => cut.Find("#child-content");
+
+      // Assert
+      findChildContentAction.Should().NotThrow(
+          because: "the child content should be rendered when IsLoading = false");
+
+    }
+
+
+    [Fact]
+    public void Loading_ShouldNotRenderChildContent_WhenIsLoadingIsTrue()
+    {
+        // Arrange
+        var cut = Render(
+            @<Loading IsLoading="true">
+                <p id="child-content">Child Content</p>
+            </Loading>);
+
+        // Act
+        Action findChildContentAction = () => cut.Find("#child-content");
+
+        // Assert
+        findChildContentAction.Should().ThrowExactly<ElementNotFoundException>(
+            because: "the child content should not be rendered when IsLoading = true");
+
+    }
+
+}

@@ -1,0 +1,23 @@
+﻿@*
+    This is the main layout of the application. It contains the navigation menu and the main content area.
+    The layout is used by the pages in the Pages folder.
+*@
+@inherits LayoutComponentBase
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+        <div class="top-row px-4">
+            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+        </div>
+
+        <article class="content px-4">
+            @*
+                Calls to the RenderFragment properties in the MainLayout.razor file are replaced with the content of the corresponding pages.
+            *@
+            @Body 
+        </article>
+    </main>
+</div>

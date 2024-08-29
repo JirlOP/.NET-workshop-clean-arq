@@ -1,0 +1,30 @@
+﻿@page "/counter"
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+@*
+    The paragraph element displays the current count
+    using the @currentCount field
+*@
+<p role="status">Current count: @currentCount</p>
+
+@* 
+    The button is a Bootstrap button that calls
+    the IncrementCount method when clicked 
+*@
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@*
+    The code block contains the IncrementCount method
+    and the currentCount field
+*@
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}

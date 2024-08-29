@@ -1,0 +1,6 @@
+@UCR.ECCI.IS.ExampleProject.Presentation.Api_HostAddress = http://localhost:5142
+
+GET {{UCR.ECCI.IS.ExampleProject.Presentation.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

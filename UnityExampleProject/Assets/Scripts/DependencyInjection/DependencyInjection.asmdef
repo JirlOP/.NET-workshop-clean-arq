@@ -1,0 +1,20 @@
+{
+    "name": "DependencyInjection",
+    "rootNamespace": "ECCI.UCR.IS.ExampleProject.Unity.DependencyInjection",
+    "references": [
+        "GUID:5484e14164e3a2047afe08bcfee4189c",
+        "GUID:584745d263d80a3479e1808691ca8bd1",
+        "GUID:4cb91e9a6ba5e344ab5be2ffc253128e",
+        "GUID:f9cd0cb877150c54ea3c3f555633199d",
+        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

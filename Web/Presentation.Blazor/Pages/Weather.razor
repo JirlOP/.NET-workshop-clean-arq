@@ -1,0 +1,73 @@
+﻿@*
+    The @page directive specifies the URL that the component will be rendered at.
+    In this case, the Weather component will be rendered at the /weather URL.
+*@
+@page "/weather"
+@*
+    The @inject directive is used to inject services into the component.
+    In this case, the HttpClient service is injected into the Weather component.
+    The HttpClient service is used to make HTTP requests to the server.
+*@
+@inject HttpClient Http
+
+<PageTitle>Weather</PageTitle>
+
+<h1>Weather</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+@*
+    Use codeb below to fetch data from the server and display it in a table.
+*@
+@if (forecasts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Temp. (C)</th>
+                <th>Temp. (F)</th>
+                <th>Summary</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var forecast in forecasts)
+            {
+                <tr>
+                    <td>@forecast.Date.ToShortDateString()</td>
+                    <td>@forecast.TemperatureC</td>
+                    <td>@forecast.TemperatureF</td>
+                    <td>@forecast.Summary</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private WeatherForecast[]? forecasts;
+
+    /*
+     * Lifetime method that is called when the component is initialized or rendered
+     */
+    protected override async Task OnInitializedAsync()
+    {
+        // With Kiota, you can use the Http.GetFromJsonAsync<T> method to fetch JSON data from the server.
+        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
+    }
+
+    public class WeatherForecast
+    {
+        public DateOnly Date { get; set; }
+
+        public int TemperatureC { get; set; }
+
+        public string? Summary { get; set; }
+
+        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    }
+}

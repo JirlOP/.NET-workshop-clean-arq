@@ -1,0 +1,17 @@
+{
+    "name": "Application",
+    "rootNamespace": "UCR.ECCI.IS.ExampleProject.Unity.Application",
+    "references": [
+        "GUID:5484e14164e3a2047afe08bcfee4189c",
+        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": true
+}

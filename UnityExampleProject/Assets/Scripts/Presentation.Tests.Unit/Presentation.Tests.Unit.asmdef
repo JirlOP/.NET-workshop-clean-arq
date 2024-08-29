@@ -1,0 +1,29 @@
+{
+    "name": "Presentation.Tests.Unit",
+    "rootNamespace": "UCR.ECCI.IS.UnityExampleProject.Presentation.Tests.Unit",
+    "references": [
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner",
+        "Presentation",
+        "Domain",
+        "Application",
+        "Unity.TextMeshPro",
+        "Zenject",
+        "Zenject-TestFramework"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll",
+        "FluentAssertions.dll",
+        "Moq.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
